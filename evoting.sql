@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jun 14, 2021 at 01:52 AM
+-- Generation Time: Jun 14, 2021 at 02:50 AM
 -- Server version: 10.4.19-MariaDB
 -- PHP Version: 7.4.20
 
@@ -178,7 +178,7 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`id`, `name`, `nim`, `jurusan`, `password`, `roles`, `has_vote`, `verified`, `remember_token`, `created_at`, `updated_at`) VALUES
-(1, 'Sandy Maulana', '17.01.071.106', 'Teknik Informatika', '$2y$10$IvPNJjaGc4kJgC29tuf5R.hK6sk8hWLv457DAiUDtsjMqlSFhnPOG', 'Admin', NULL, 1, NULL, '2020-09-28 09:50:23', '2020-09-28 09:50:23');
+(1, 'Sandy Maulana', '17.01.071.106', 'Teknik Informatika', '$2y$10$Ebgrso9KIIIdEA785oePl.GInJUBYYN6UKfV8XFpsPyinmivmwdfq', 'Admin', NULL, 1, NULL, '2020-09-28 09:50:23', '2020-09-28 09:50:23');
 
 -- --------------------------------------------------------
 
