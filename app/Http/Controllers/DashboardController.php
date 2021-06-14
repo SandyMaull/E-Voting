@@ -89,7 +89,7 @@ class DashboardController extends Controller
             $iden = $request->typeinput;
             $db = Voters::where('identitas', $iden)->first();
             if ($db) {
-                $db->tipe == 'Mahasiswa';
+                $db->tipe = 'Mahasiswa';
                 $db->save();
                 return view('tampilan.nmor_telp', ['db' => $db]);
             } else {
@@ -105,7 +105,7 @@ class DashboardController extends Controller
             $iden = $request->typeinput;
             $db = Voters::where('identitas', $iden)->first();
             if ($db) {
-                $db->tipe == 'Dosen';
+                $db->tipe = 'Dosen';
                 $db->save();
                 return view('tampilan.nmor_telp', ['db' => $db]);
             } else {
@@ -121,7 +121,7 @@ class DashboardController extends Controller
             $iden = $request->typeinput;
             $db = Voters::where('identitas', $iden)->first();
             if ($db) {
-                $db->tipe == 'Dosen';
+                $db->tipe = 'Dosen';
                 $db->save();
                 return view('tampilan.nmor_telp', ['db' => $db]);
             } else {

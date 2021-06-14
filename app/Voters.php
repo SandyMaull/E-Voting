@@ -14,7 +14,7 @@ class Voters extends Authenticatable
     protected $guard = 'voter';
     protected $table = 'voters';
     protected $fillable = [
-        'nama', 'tipe', 'identitas', 'prodi', 'password', 'foto_siakad', 'nmor_wa', 'has_vote', 'verified',
+        'nama', 'identitas', 'tipe', 'prodi', 'password', 'foto_siakad', 'nmor_wa', 'has_vote', 'verified',
     ];
 
     protected $hidden = [
