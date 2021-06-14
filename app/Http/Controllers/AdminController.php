@@ -79,7 +79,7 @@ class AdminController extends Controller
             }
             $looping += 1;
         }
-        if (empty($result)) {
+        if (count($dpmvotesdb) == 0) {
             $colors = '#' . str_pad(dechex(mt_rand(0, 0xFFFFFF)), 6, '0', STR_PAD_LEFT);
             $dpmvotesdata[0] = [
                 'nama' => 'Kandidat KOSONG',
