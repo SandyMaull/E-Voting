@@ -186,7 +186,7 @@
                 maintainAspectRatio : false,
                 responsive : true,
                 tooltips: {
-                    enabled: false
+                    enabled: true
                 },
                 plugins: {
                     labels: {
@@ -197,13 +197,13 @@
                 }
             }
             var donutChart = new Chart(donutChartCanvas, {
-            type: 'pie',
+            type: 'doughnut',
             data: donutData,
             options: donutOptions      
             });
         // REFRESH PAGE EVERY 10 Seconds 
             setTimeout(function() {
                 location.reload();
-            }, 60000);
+            }, 100000);
     </script>
 @endsection
