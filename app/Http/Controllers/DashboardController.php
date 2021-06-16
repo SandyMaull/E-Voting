@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Allowed;
 use App\Helpers\CustomHelper;
 use App\Kandidat;
 use App\Tervote;
@@ -88,10 +89,11 @@ class DashboardController extends Controller
             ]);
             $iden = $request->typeinput;
             $db = Voters::where('identitas', $iden)->first();
+            $allow = Allowed::all();
             if ($db) {
                 $db->tipe = 'Mahasiswa';
                 $db->save();
-                return view('tampilan.nmor_telp', ['db' => $db]);
+                return view('tampilan.nmor_telp', ['db' => $db, 'allow' => $allow]);
             } else {
                 return redirect()->route('register')->with(['status' => 'error','message' => 'Data tidak ditemukan, Check kembali NIM/NIP/NIDN.']);
             }
@@ -104,10 +106,11 @@ class DashboardController extends Controller
             ]);
             $iden = $request->typeinput;
             $db = Voters::where('identitas', $iden)->first();
+            $allow = Allowed::all();
             if ($db) {
                 $db->tipe = 'Dosen';
                 $db->save();
-                return view('tampilan.nmor_telp', ['db' => $db]);
+                return view('tampilan.nmor_telp', ['db' => $db, 'allow' => $allow]);
             } else {
                 return redirect()->route('register')->with(['status' => 'error','message' => 'Data tidak ditemukan, Check kembali NIM/NIP/NIDN.']);
             }

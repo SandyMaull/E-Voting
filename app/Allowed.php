@@ -8,6 +8,6 @@ class Allowed extends Model
 {
     protected $table = 'allowed_section';
     protected $fillable = [
-        'nama'
+        'nama', 'jenis_data'
     ];
 }
