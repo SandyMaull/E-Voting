@@ -72,7 +72,7 @@ class DashboardController extends Controller
     function register_post(Request $request)
     {
         $request->validate([
-            'changetypedata' => 'required|in:NIM,NIDN',
+            'changetypedata' => 'required|in:NIM,NIP/NIDN',
             'typeinput' => 'required'
         ],[
             'changetypedata.required' => 'Data Tipe dibutuhkan!',
