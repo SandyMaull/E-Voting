@@ -97,7 +97,7 @@ class DashboardController extends Controller
             }
         } else {
             $request->validate([
-                'typeinput' => 'max:18|min:18'
+                'typeinput' => 'max:18|min:10'
             ],[
                 'typeinput.max' => 'Isi kolom NIP/NIDN dgn Benar! Contoh format NIP/NIDN yang sesuai: NIP: 198701132014101028 / NIDN: 9908430596',
                 'typeinput.min' => 'Isi kolom NIP/NIDN dgn Benar! Contoh format NIP/NIDN yang sesuai: NIP: 198701132014101028 / NIDN: 9908430596',
