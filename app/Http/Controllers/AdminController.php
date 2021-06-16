@@ -125,16 +125,19 @@ class AdminController extends Controller
         $request->validate([
             'allowed' => 'required',
             'allowed_action' => 'required',
+            'allowed_jenis' => 'required',
         ],
         [
             'allowed.required' => 'Nama Allowed dibutuhkan!',
             'allowed_action.required' => 'Action Allowed dibutuhkan!',
+            'allowed_jenis.required' => 'Jenis Allowed dibutuhkan!',
             
         ]);
         // dd($request->all());
         if ($request->allowed_action == 'ADD') {
             $db = new Allowed();
             $db->nama = $request->allowed;
+            $db->jenis_data = $request->allowed_jenis;
             $db->save();
             return redirect(route('adminVotingAllowed'))->with(['status' => 'sukses', 'message' => ' Data Berhasil Ditambah!']);
         } else {

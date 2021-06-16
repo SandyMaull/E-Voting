@@ -53,6 +53,7 @@
                             <tr>
                                 <th>ID</th>
                                 <th>Nama</th>
+                                <th>Jenis</th>
                                 <th>Action</th>
                             </tr>
                         </thead>
@@ -61,6 +62,7 @@
                                 <tr>
                                     <td>{{ $loop->iteration }}</td>
                                     <td>{{ $db->nama }}</td>
+                                    <td>{{ $db->jenis_data }}</td>
                                     <td>
                                         <button type="button" data-id="{{ $db->id }}" class="btn btn-danger" data-toggle="modal" data-target="#modal_hapus_data">
                                             Delete Data
@@ -73,6 +75,7 @@
                             <tr>
                                 <th>ID</th>
                                 <th>Nama</th>
+                                <th>Jenis</th>
                                 <th>Action</th>
                             </tr>
                         </tfoot>
@@ -99,6 +102,10 @@
                         <div class="form-group">
                             <label for="allowed_section">Nama</label>
                             <input type="text" class="form-control" name="allowed" id="allowed_section" placeholder="Masukan Nama Allowed Section">
+                        </div>
+                        <div class="form-group">
+                            <label for="allowed_section_jenisdata">Jenis</label>
+                            <input type="text" class="form-control" name="allowed_jenis" id="allowed_section_jenisdata" placeholder="Masukan Jenis dari Allowed">
                         </div>
                     </div>
                     <input type="hidden" name="allowed_action" value="ADD">
