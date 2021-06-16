@@ -36,13 +36,17 @@
                         <div class="col-6">Nama</div>
                         <div class="col-6">{{$db->nama}}</div>
                     </div>
-                    @php
+                    <div class="row mx-2 my-2">
+                        <div class="col-6">Prodi</div>
+                        <div class="col-6">{{$db->prodi}}</div>
+                    </div>
+                    {{-- @php
                         $bagian = $allow->where('nama', $db->prodi)->first();
                     @endphp
                     <div class="row mx-2 my-2">
                         <div class="col-6">{{ $bagian['jenis_data'] }}</div>
                         <div class="col-6">{{$db->prodi}}</div>
-                    </div>
+                    </div> --}}
                     @if ($db->verified == 1)
                     <div class="row mx-2 my-2">
                         <div class="col-6">Status</div>
