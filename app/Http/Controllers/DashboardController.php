@@ -72,7 +72,7 @@ class DashboardController extends Controller
     function register_post(Request $request)
     {
         $request->validate([
-            'changetypedata' => 'required|in:NIM,NIP,NIDN',
+            'changetypedata' => 'required|in:NIM,NIDN',
             'typeinput' => 'required'
         ],[
             'changetypedata.required' => 'Data Tipe dibutuhkan!',
@@ -95,28 +95,12 @@ class DashboardController extends Controller
             } else {
                 return redirect()->route('register')->with(['status' => 'error','message' => 'Data tidak ditemukan, Check kembali NIM/NIP/NIDN.']);
             }
-        } else if ($tipe == 'NIP') {
+        } else {
             $request->validate([
                 'typeinput' => 'max:18|min:18'
             ],[
-                'typeinput.max' => 'Isi kolom NIP dgn Benar! Contoh format NIP yang sesuai: 198701132014101028',
-                'typeinput.min' => 'Isi kolom NIP dgn Benar! Contoh format NIP yang sesuai: 198701132014101028',
-            ]);
-            $iden = $request->typeinput;
-            $db = Voters::where('identitas', $iden)->first();
-            if ($db) {
-                $db->tipe = 'Dosen';
-                $db->save();
-                return view('tampilan.nmor_telp', ['db' => $db]);
-            } else {
-                return redirect()->route('register')->with(['status' => 'error','message' => 'Data tidak ditemukan, Check kembali NIM/NIP/NIDN.']);
-            }
-        } else {
-            $request->validate([
-                'typeinput' => 'max:10|min:10'
-            ],[
-                'typeinput.max' => 'Isi kolom NIDN dgn Benar! Contoh format NIDN yang sesuai: 9908430596',
-                'typeinput.min' => 'Isi kolom NIDN dgn Benar! Contoh format NIDN yang sesuai: 9908430596',
+                'typeinput.max' => 'Isi kolom NIP/NIDN dgn Benar! Contoh format NIP/NIDN yang sesuai: NIP: 198701132014101028 / NIDN: 9908430596',
+                'typeinput.min' => 'Isi kolom NIP/NIDN dgn Benar! Contoh format NIP/NIDN yang sesuai: NIP: 198701132014101028 / NIDN: 9908430596',
             ]);
             $iden = $request->typeinput;
             $db = Voters::where('identitas', $iden)->first();
