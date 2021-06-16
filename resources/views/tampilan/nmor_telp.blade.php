@@ -40,7 +40,7 @@
                         $bagian = $allow->where('nama', $db->prodi)->first();
                     @endphp
                     <div class="row mx-2 my-2">
-                        <div class="col-6">{{ $bagian->jenis_data }}</div>
+                        <div class="col-6">{{ $bagian['jenis_data'] }}</div>
                         <div class="col-6">{{$db->prodi}}</div>
                     </div>
                     @if ($db->verified == 1)
