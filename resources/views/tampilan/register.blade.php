@@ -22,7 +22,7 @@
                     <label for="tipemasuk">NIM/NIP/NIDN</label>
                     <select name="changetypedata" onchange="changetype()" id="tipemasuk" class="form-control">
                         <option value="NIM">NIM</option>
-                        <option value="NIDN">NIP/NIDN</option>
+                        <option value="NIP/NIDN">NIP/NIDN</option>
                         {{-- <option value="NIDN">NIDN</option> --}}
                     </select>
                 </div>
