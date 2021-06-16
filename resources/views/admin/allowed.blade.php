@@ -64,7 +64,7 @@
                                     <td>{{ $db->nama }}</td>
                                     <td>{{ $db->jenis_data }}</td>
                                     <td>
-                                        <button type="button" data-id="{{ $db->id }}" class="btn btn-danger" data-toggle="modal" data-target="#modal_hapus_data">
+                                        <button type="button" data-allow="{{ $db->jenis_data }}" data-id="{{ $db->id }}" class="btn btn-danger" data-toggle="modal" data-target="#modal_hapus_data">
                                             Delete Data
                                         </button>
                                     </td>
@@ -136,6 +136,7 @@
                 <form action="{{ url('administrator/voting_allowed_post') }}" method="post">
                     @csrf
                     <input type="hidden" id="allowed_id" name="allowed">
+                    <input type="hidden" id="jenis_allowed" name="allowed_jenis">
                     <input type="hidden" name="allowed_action" value="DELETE">
                     <div class="modal-footer justify-content-between">
                         <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
@@ -171,8 +172,10 @@
         $('#modal_hapus_data').on('show.bs.modal', function(event) {
             var button = $(event.relatedTarget)
             var id = button.data('id')
+            var allowed = button.data('allow')
             var modal = $(this)
             document.getElementById("allowed_id").value = id;
+            document.getElementById("jenis_allowed").value = allowed;
         });
 </script>
 
