@@ -561,9 +561,15 @@ class AdminController extends Controller
             'voters_id.required' => 'ID Voters dibutuhkan!',
             
         ]);
+        $voting = Voters::where('id', $request->voters_id)->first();
+        $datavote = Tervote::where('voters_id', $request->voters_id)->delete();
         $voting = Voters::where('id', $request->voters_id)->update([
-            'verified' => 0,
+            'tipe' => NULL,
+            'password' => NULL,
+            'nmor_wa' => NULL,
             'has_vote' => 0,
+            'verified' => 0,
+            'updated_at' => Carbon::now(),
         ]);
         if ($voting) {
             return redirect()->route('adminVotersVer')->with(['status' => 'sukses', 'message' => ' Data Berhasil Diupdate!']);
@@ -571,7 +577,6 @@ class AdminController extends Controller
         else {
             return redirect()->route('adminVotersVer')->with(['status' => 'error','message' => ' Data Gagal Diupdate! Check Database Connection.']);
         }
-
     }
 
     public function voter_unverif()
