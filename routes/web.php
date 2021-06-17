@@ -45,6 +45,8 @@ Route::post('/register_verif', 'DashboardController@register_verif');
         Route::post('/administrator/votingpost', 'AdminController@votingpage_post');
         Route::get('/administrator/voting_allowed', 'AdminController@allowed_read')->name('adminVotingAllowed');
         Route::post('/administrator/voting_allowed_post', 'AdminController@allowed_action');
+        Route::get('/administrator/totalsuara', 'AdminController@totalsuara')->name('adminTotalsuara');
+        Route::get('/administrator/exportsuara', 'AdminController@exportsuara');
 
     // Kandidat Controller
         Route::get('/administrator/kandidat', 'AdminController@kandidat_index')->name('adminKandidat');

@@ -54,6 +54,12 @@
                                 <p>Data Kandidat</p>
                             </a>
                         </li>
+                        <li class="nav-item">
+                            <a id="datavoting_suara" href="{{ url('/administrator/totalsuara') }}" class="nav-link">
+                                <i class="fas fa-database"></i>
+                                <p>Data Suara</p>
+                            </a>
+                        </li>
                     </ul>
                 </li>
                 <li id="datavoters" class="nav-item has-treeview">

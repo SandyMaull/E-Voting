@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Allowed;
+use App\Exports\SuaraExport;
 use App\Tim;
 use App\Voters;
 use App\Voting;
@@ -13,6 +14,8 @@ use App\Tervote;
 use Illuminate\Support\Carbon;
 use Illuminate\Support\Facades\File;
 use Intervention\Image\Facades\Image;
+use Maatwebsite\Excel\Facades\Excel;
+use PhpParser\Node\Expr\Cast\Array_;
 
 class AdminController extends Controller
 {
@@ -24,7 +27,7 @@ class AdminController extends Controller
             'kandidat_addtim', 'kandidat_deltim',
             'kandidat_edittim', 'kandidat_addkandidat',
             'kandidat_editkandidat', 'kandidat_delkandidat',
-            'getQRCodeWa',
+            'getQRCodeWa', 'allowed_read', 'allowed_action'
 
         ]]);
         $this->middleware('admin:Staff', ['only' => [
@@ -144,6 +147,27 @@ class AdminController extends Controller
             Allowed::destroy($request->allowed);
             return redirect(route('adminVotingAllowed'))->with(['status' => 'sukses', 'message' => ' Data Berhasil Dihapus!']);
         }
+    }
+
+    public function totalsuara()
+    {
+        $data = Array();
+        $datakandidatall = Kandidat::all();
+        $datasuaraall = Tervote::all();
+        foreach ($datakandidatall as $kand) {
+            $datasuara = $datasuaraall->where('voting_dpm', $kand->id)->count();
+            $data[$kand->id]['nama'] =  $kand->nama;
+            $data[$kand->id]['suara'] =  $datasuara;
+        }
+        // dd($data);
+        // $data = (object) $data;
+        // dd($data);
+        return view('admin.totalsuara', ['data' => $data]);
+    }
+
+    public function exportsuara()
+    {
+        return Excel::download(new SuaraExport, 'TOTAL SUARA ' . config('app.name') . '.xlsx');
     }
 
     public function votingpage()
